@@ -1,5 +1,5 @@
 import React from 'react'
-import {BannerHome, RedirectButton} from '../'
+import {BannerHome, RedirectButton} from '..'
 
 const Home = () => {
     return (

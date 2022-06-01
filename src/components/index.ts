@@ -1,6 +1,7 @@
 //LAYOUT
 /*Navbar / footer/ etc */
-export {default as NavBar} from './layout/NavBar'
+export {default as NavBar} from './layout/NavBar/NavBar'
+export {default as TemporaryDrawer} from './layout/NavBar/TemporaryDrawer'
 
 //FEATURES
 /*Componentes específicos de las vistas.*/
