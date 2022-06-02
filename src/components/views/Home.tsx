@@ -1,12 +1,11 @@
 import React from 'react'
-import {BannerHome, RedirectButton} from '..'
+import {BannerHome} from '..'
 
 const Home = () => {
     return (
-        <div>
+        <>
             <BannerHome/>
-            <RedirectButton to="/redireccion"/>
-        </div>
+        </>
     )
 }
 
