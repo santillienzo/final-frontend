@@ -1,5 +1,4 @@
 import {Footer, Home, NavBar,} from './components';
-import Cards from './components/layout/Card/Cards';
 import {BrowserRouter as Router, Route, Routes as RoutesContainer} from "react-router-dom";
 
 function App() {
@@ -10,7 +9,6 @@ function App() {
                 <RoutesContainer>
                     <Route path="/" element={<Home/>}/>
                 </RoutesContainer>
-                <Cards/>
                 <Footer/>
             </div>
         </Router>

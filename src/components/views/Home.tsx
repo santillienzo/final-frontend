@@ -1,10 +1,11 @@
 import React from 'react'
-import {BannerHome} from '..'
+import {BannerHome, SliderCardSection} from '..'
 
 const Home = () => {
     return (
         <>
             <BannerHome/>
+            <SliderCardSection/>
         </>
     )
 }

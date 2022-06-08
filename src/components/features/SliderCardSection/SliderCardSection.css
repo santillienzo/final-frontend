@@ -1,0 +1,17 @@
+.mySwiper {
+    width: 100%;
+    height: 350px;
+    margin-left: 15px !important;
+}
+
+
+.swiper-slide {
+
+}
+
+/* .swiper-slide img {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
+} */
