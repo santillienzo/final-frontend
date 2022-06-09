@@ -6,46 +6,28 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 
 
-import { FreeMode, Pagination } from "swiper";
+import { FreeMode, Pagination,Navigation } from "swiper";
 
-let products = [
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    }
-]
+interface SliderCardSectionProps{
+    name: string, 
+    products: any[]
+}
 
-const SliderCardSection = () => {
+const SliderCardSection = ({name, products}:SliderCardSectionProps) => {
     return (
-        <>
-            <h5>Holaa</h5>
+        <div className="swipper-wrapper">
+            <h5>{name}</h5>
             <Swiper
                 slidesPerView={5}
                 spaceBetween={30}
+                navigation
                 freeMode={true}
+                scrollbar={{draggable: true}}
                 pagination={{
                     clickable: true,
                 }}
-                modules={[FreeMode, Pagination]}
+                modules={[FreeMode, Pagination, Navigation]}
                 className="mySwiper"
-                
             >
                 {
                     products.map((e,i)=>(
@@ -55,7 +37,7 @@ const SliderCardSection = () => {
                     ))
                 }
             </Swiper>
-        </>
+        </div>
     );
 };
 
