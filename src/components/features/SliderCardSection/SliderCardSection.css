@@ -1,0 +1,15 @@
+.swipper-wrapper{
+    /* max-width: 100vw; */
+    overflow: hidden;
+    padding-left: 3%;
+    margin-bottom: 15px;
+}
+
+.swiper {
+    width: calc(100vw - 5%);
+    height: 100%;
+}
+
+.swiper-slide {
+    max-width: 250px;
+}

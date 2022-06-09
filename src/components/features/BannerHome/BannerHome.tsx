@@ -4,7 +4,7 @@ import './BannerHome.css'
 
 const BannerHome = () => {
     return (
-        <Carousel style={{width: '95%', margin: '15px auto'}}>
+        <Carousel style={{width: '94%', margin: '15px auto'}}>
             <Carousel.Item style={{height: '75vh', }}>
                 <img
                     style={{objectFit:'contain'}}

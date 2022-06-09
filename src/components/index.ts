@@ -7,9 +7,12 @@ export {default as Footer} from './layout/Footer/Footer'
 //FEATURES
 /*Componentes específicos de las vistas.*/
 export {default as BannerHome} from './features/BannerHome/BannerHome'
+export {default as SliderCardSection} from './features/SliderCardSection/SliderCardSection'
+export {default as SliderCard} from './features/SliderCard/SliderCard'
 
 //COMMON
 /*Componentes reutilizables como botones, tarjetas, etc */
+export {default as ProductCard} from './common/ProductCard/ProductCard'
 export {default as RedirectButton} from './common/RedirectButton/RedirectButton'
 
 //VIEWS
