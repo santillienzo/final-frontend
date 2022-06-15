@@ -9,7 +9,8 @@ interface CardProps {
 
 // {name, image, description}: CardProps
 
-function ProductCard() {
+function 
+ProductCard() {
 
     return (
         <Card style={{ width: '100%' }}>
