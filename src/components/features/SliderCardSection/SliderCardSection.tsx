@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css/bundle";
 
+import data from "../../../data"
 
 import { FreeMode, Pagination,Navigation } from "swiper";
 
@@ -30,9 +31,9 @@ const SliderCardSection = ({name, products}:SliderCardSectionProps) => {
                 className="mySwiper"
             >
                 {
-                    products.map((e,i)=>(
+                    data.map((product,i)=>(
                         <SwiperSlide key={i}>
-                            <ProductCard/>
+                            <ProductCard description={product.description} id={product.id} name={product.name} image={product.image}/>
                         </SwiperSlide>
                     ))
                 }

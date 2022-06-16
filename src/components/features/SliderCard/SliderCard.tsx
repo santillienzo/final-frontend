@@ -6,29 +6,7 @@ import "swiper/css/bundle";
 
 import { FreeMode, Pagination } from "swiper";
 
-let products = [
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    }
-]
+import data from "../../../data"
 
 const SliderCard = () => {
   return (
@@ -44,9 +22,9 @@ const SliderCard = () => {
             className="mySwiper"
         >
             {
-                products.map((e,i)=>(
-                    <SwiperSlide>
-                        <ProductCard/>
+                data.map((product, i)=>(
+                    <SwiperSlide key={product.id}>
+                        <ProductCard id={product.id} image={product.image} name={product.name} description={product.description}/>
                     </SwiperSlide>
                 ))
             }

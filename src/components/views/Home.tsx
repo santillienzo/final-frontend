@@ -29,6 +29,7 @@ const Home = () => {
     return (
         <>
             <BannerHome/>
+
             <SliderCardSection
                 name='Ofertas'
                 products={products}
