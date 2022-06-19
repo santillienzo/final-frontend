@@ -8,7 +8,6 @@ export {default as Footer} from './layout/Footer/Footer'
 /*Componentes específicos de las vistas.*/
 export {default as BannerHome} from './features/BannerHome/BannerHome'
 export {default as SliderCardSection} from './features/SliderCardSection/SliderCardSection'
-export {default as SliderCard} from './features/SliderCard/SliderCard'
 
 //COMMON
 /*Componentes reutilizables como botones, tarjetas, etc */

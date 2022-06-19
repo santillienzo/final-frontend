@@ -1,29 +1,8 @@
 import React from 'react'
 import {BannerHome, SliderCardSection} from '..'
 
-let products = [
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    },
-    {
-        nombre: "Producto"
-    }
-]
+import data from '../../lib/data'
+
 
 const Home = () => {
     return (
@@ -32,11 +11,11 @@ const Home = () => {
 
             <SliderCardSection
                 name='Ofertas'
-                products={products}
+                data={data}
             />
             <SliderCardSection
                 name='Más vendidos'
-                products={products}
+                data={data}
             />
         </>
     )

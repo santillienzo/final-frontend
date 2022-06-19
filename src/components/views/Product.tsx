@@ -1,6 +1,6 @@
 import { useParams, Navigate } from "react-router-dom"
 import {Image,Button} from 'react-bootstrap'
-import data from "../../data"
+import data from "../../lib/data"
 
 const getProduct = (id: string) => {
     return data.find(product => product.id === Number(id))

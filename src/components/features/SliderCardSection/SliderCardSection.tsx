@@ -5,16 +5,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css/bundle";
 
-import data from "../../../data"
-
 import { FreeMode, Pagination,Navigation } from "swiper";
+import { Product } from "../../../lib/interface";
 
 interface SliderCardSectionProps{
     name: string, 
-    products: any[]
+    data: Product[]
 }
 
-const SliderCardSection = ({name, products}:SliderCardSectionProps) => {
+const SliderCardSection = ({name, data}:SliderCardSectionProps) => {
     return (
         <div className="swipper-wrapper">
             <h5>{name}</h5>
