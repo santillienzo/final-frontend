@@ -1,12 +1,13 @@
 import { useParams, Navigate } from "react-router-dom"
 import {Image,Button} from 'react-bootstrap'
 import data from "../../lib/data"
+import { Product } from "../../lib/interface"
 
 const getProduct = (id: string) => {
-    return data.find(product => product.id === Number(id))
+    return data.find((product:Product) => product.id === Number(id))
 }
 
-const Product = () => {
+const DetailProduct = () => {
     const {id} = useParams()
     const product = getProduct(id!)
 
@@ -32,4 +33,4 @@ const Product = () => {
     )
 }
 
-export default Product;
+export default DetailProduct;

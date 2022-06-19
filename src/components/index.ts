@@ -17,3 +17,5 @@ export {default as RedirectButton} from './common/RedirectButton/RedirectButton'
 //VIEWS
 /*Las raíces de las vistas */
 export {default as Home} from './views/Home'
+export {default as DetailProduct} from './views/DetailProduct'
+export {default as Error404} from './views/Error404'
