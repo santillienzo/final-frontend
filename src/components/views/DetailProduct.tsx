@@ -23,11 +23,11 @@ const DetailProduct = () => {
 
             <div style={{padding: "16px"}}>
                 <h1>{product?.name}</h1>
-                <h2>{product?.price}</h2>
+                <h2>${product?.price}</h2>
 
                 <p>{product?.description}</p>
 
-                <Button>Comprar</Button>
+                <Button className="w-100">Comprar</Button>
             </div>
         </div>
     )
