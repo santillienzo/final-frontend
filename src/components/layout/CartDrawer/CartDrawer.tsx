@@ -29,7 +29,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-const TemporaryDrawer = ({openDrawer, toggleDrawer, anchor} : Props) => {
+const CartDrawer = ({openDrawer, toggleDrawer, anchor} : Props) => {
 
   const list = () => (
     <Box
@@ -69,4 +69,4 @@ const TemporaryDrawer = ({openDrawer, toggleDrawer, anchor} : Props) => {
   );
 }
 
-export default TemporaryDrawer;
+export default CartDrawer;

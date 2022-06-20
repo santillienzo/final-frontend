@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TemporaryDrawer} from '../../';
+import {TemporaryDrawer, CartDrawer} from '../../';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -58,7 +58,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const NavBar = () => {
     //OpenDrawer
-    const [openDrawer, setOpenDrawer] = useState(false);
+    const [openDrawer, setOpenDrawer] = useState<boolean>(false);
+    const [openCartDrawer, setOpenCartDrawer] = useState<boolean>(false);
 
     const toggleDrawer = (open: boolean) =>
     (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -67,6 +68,15 @@ const NavBar = () => {
         }
 
         setOpenDrawer(open);
+    };
+
+    const toggleCartDrawer = (open: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
+        if (event.type === 'keydown' && ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')) {
+            return;
+        }
+
+        setOpenCartDrawer(open);
     };
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -187,7 +197,7 @@ const NavBar = () => {
                                 aria-label="account of current user"
                                 aria-controls={menuId}
                                 aria-haspopup="true"
-                                onClick={handleProfileMenuOpen}
+                                onClick={toggleCartDrawer(true)}
                                 color="inherit"
                             >
                                 <Badge badgeContent={0} color="error">
@@ -224,8 +234,14 @@ const NavBar = () => {
                 {renderMenu}
             </Box>
             <TemporaryDrawer
+                anchor="left"
                 openDrawer={openDrawer}
                 toggleDrawer={toggleDrawer}
+            />
+            <CartDrawer
+                anchor="right"
+                openDrawer={openCartDrawer}
+                toggleDrawer={toggleCartDrawer}
             />
         </>
     );
