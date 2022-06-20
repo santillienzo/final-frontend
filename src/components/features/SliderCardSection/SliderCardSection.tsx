@@ -32,7 +32,7 @@ const SliderCardSection = ({name, data}:SliderCardSectionProps) => {
                 {
                     data.map((product,i)=>(
                         <SwiperSlide key={i}>
-                            <ProductCard description={product.description} id={product.id} name={product.name} image={product.image}/>
+                            <ProductCard description={product.description} id={product.id} name={product.name} image={product.image} price={product.price}/>
                         </SwiperSlide>
                     ))
                 }

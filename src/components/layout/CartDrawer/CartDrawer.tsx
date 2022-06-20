@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -12,6 +12,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import data from '../../../lib/data'
+import CartContext from '../../../context/CartContext';
 
 interface Props{
     openDrawer: boolean,
@@ -29,11 +30,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 const ProductList = () => {
-    const [quantity, setQuantity] = useState<number>(1);
-
-    const handleChange = (event: SelectChangeEvent) => {
-        setQuantity(Number(event.target.value));
-    };
+    const {cartItems, priceTotal, deleteItemToCart, updateItem, countCart} = useContext<any>(CartContext)
 
     return(
 
@@ -43,7 +40,7 @@ const ProductList = () => {
         >
             <List>
                 {
-                    data.map((product, i)=>(
+                    cartItems.map((product:any, i:number)=>(
                         <ListItem sx={{display:'flex', justifyContent: 'space-between'}} key={i}>
                             <Avatar alt="Remy Sharp" src={product.image} />
                             <Box sx={{display:'flex', flexDirection:'column', flex:1, ml:2}}>
@@ -55,9 +52,9 @@ const ProductList = () => {
                                 <Select
                                     labelId="demo-select-small"
                                     id="demo-select-small"
-                                    value={quantity.toString()}
+                                    value={product.quantity.toString()}
                                     label="Cantidad"
-                                    onChange={handleChange}
+                                    onChange={(e)=> updateItem(e.target.value, product)}
                                 >
                                         <MenuItem value={1}>1</MenuItem>
                                         <MenuItem value={2}>2</MenuItem>
@@ -90,12 +87,12 @@ const ProductList = () => {
                 <Typography variant="h5">Resumen del pedido</Typography>
                 <Box marginTop={1}>
                     <Box sx={{display:'flex', justifyContent: 'space-between'}}>
-                        <Typography>5 productos</Typography>
-                        <Typography>$1500</Typography>
+                        <Typography>{countCart} productos</Typography>
+                        <Typography>${priceTotal}</Typography>
                     </Box>
                     <Box sx={{display:'flex', justifyContent: 'space-between'}}>
                         <Typography variant="h6">Subtotal</Typography>
-                        <Typography variant="h6">$1500</Typography>
+                        <Typography variant="h6">${priceTotal}</Typography>
                     </Box>
                     <Button variant="contained" endIcon={<ArrowForwardIosIcon />} sx={{width: '100%'}}>
                         Ir a pagar

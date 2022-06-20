@@ -16,21 +16,25 @@ export function CartContextProvider({children}: Props) {
             return [];
         }
     })
-    const [priceTotal, setPriceTotal] = useState(()=>{
+    
+    const changePriceTotal = ()=>{
         if (typeof window !== 'undefined') {
             if (localStorage.getItem("cartProducts")) {
                 let _price = 0;
                 cartItems.map((item: any)=>{
                     //El precio total es igual al valor de precio total + precio del producto multiplicadp por la cantidad
-                    _price = _price + item.sale_price * item.quantity
+                    _price = _price + item.price * item.quantity
                 })
                 return _price
             }else{
                 return 0.00
             }
         }
-    }) 
-    const [countCart, setCountCart] = useState(()=>{
+    }
+
+    const [priceTotal, setPriceTotal] = useState(changePriceTotal) 
+
+    const changeCountCart = ()=>{
         if (typeof window !== 'undefined') {
             if (localStorage.getItem("cartProducts")) {
                 //Recorremos el carrito
@@ -44,7 +48,9 @@ export function CartContextProvider({children}: Props) {
                 return 0
             }
         }
-    })
+    }
+
+    const [countCart, setCountCart] = useState(changeCountCart)
     const [showAlert, setShowAlert] = useState(false)
 
     useEffect(()=>{
@@ -55,8 +61,8 @@ export function CartContextProvider({children}: Props) {
         let quantity = 1;
         //Extraemos todos los datos del producto que seleccionemos
         item = {...item, quantity}
-
-        setPriceTotal(priceTotal! + item.sale_price * item.quantity)
+        console.log(item)
+        setPriceTotal(priceTotal! + item.price * item.quantity)
         
         const exist = cartItems.some((product: any) => product.id === item.id);
 
@@ -82,7 +88,7 @@ export function CartContextProvider({children}: Props) {
     const deleteItemToCart = (idProduct: any)=>{
         cartItems.map((item: any)=>{
             if (item.id === idProduct) {
-                let priceReduce = item.sale_price * item.quantity
+                let priceReduce = item.price * item.quantity
                 setPriceTotal(priceTotal! - priceReduce)
                 setCountCart(countCart! - item.quantity)
             }
@@ -92,39 +98,20 @@ export function CartContextProvider({children}: Props) {
         toast.success('Producto eliminado al carrito!')
     }
 
-    const updateItem = (action:any, item:any)=>{
-
-
-        if (action === "AUMENTAR") {
-            const pro = cartItems.map((product: any)=>{
-                if (product.id === item.id) {
-                    product.quantity+= 1
-                    setPriceTotal(priceTotal + product.sale_price)
-                    setCountCart(countCart! + 1)
-                    return product
-                }else{
-                    return product
-                }
-            })
-            setCartItems([...pro])
-        }else if(action === "REDUCIR"){
-            if (item.quantity > 1) {
-                const pro = cartItems.map((product: any)=>{
-                    if (product.id === item.id) {
-                        product.quantity-= 1
-                        setPriceTotal(priceTotal! - product.sale_price)
-                        setCountCart(countCart! - 1)
-                        return product
-                    }else{
-                        return product
-                    }
-                })
-                setCartItems([...pro])
+    const updateItem = (value:any, item:any)=>{
+        const pro = cartItems.map((product: any)=>{
+            if (product.id === item.id) {
+                product.quantity = value
+                setPriceTotal(changePriceTotal)
+                setCountCart(changeCountCart)
+                return product
             }else{
-                deleteItemToCart(item.id)
+                return product
             }
-        }
+        })
+        setCartItems([...pro])
     }
+    
 
     return (
         <CartContext.Provider value={{countCart, priceTotal, cartItems, addItemToCart, deleteItemToCart, updateItem, setShowAlert, showAlert}}>

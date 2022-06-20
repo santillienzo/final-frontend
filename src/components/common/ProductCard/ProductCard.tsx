@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Button, Card} from 'react-bootstrap';
 import {FaShoppingCart} from "react-icons/fa"
+import CartContext from '../../../context/CartContext';
 
 // {name, image, description}: CardProps
 
@@ -9,9 +10,13 @@ interface CardProps {
     name: string;
     image: string;
     description: string;
+    price: number;
 }
 
-function ProductCard({id, name, image, description}: CardProps) {
+function ProductCard({id, name, image, description, price}: CardProps) {
+
+    //Añadimos el item al localstorage
+    const {addItemToCart} = useContext<any>(CartContext)
 
     return (
         <Card style={{width: '100%'}}>
@@ -28,7 +33,7 @@ function ProductCard({id, name, image, description}: CardProps) {
                     </Card.Text>
 
                     <div style={{display: "flex", gap: 8, alignItems:"center"}}>
-                    <Button><FaShoppingCart /></Button>
+                    <Button onClick={()=> addItemToCart({id, name, image, description, price})}><FaShoppingCart /></Button>
                     <Card.Link as={Button} href={`/product/${id}`}>Ver más</Card.Link>
                     </div>
                 </Card.Body>
