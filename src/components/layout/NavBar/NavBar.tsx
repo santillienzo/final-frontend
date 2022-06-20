@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {TemporaryDrawer, CartDrawer} from '../../';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -15,6 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
+import CartContext from '../../../context/CartContext';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -57,6 +58,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const NavBar = () => {
+    //Traemos la cantidad de productos desde el context
+    const {countCart} = useContext<any>(CartContext)
     //OpenDrawer
     const [openDrawer, setOpenDrawer] = useState<boolean>(false);
     const [openCartDrawer, setOpenCartDrawer] = useState<boolean>(false);
@@ -159,7 +162,7 @@ const NavBar = () => {
     return (
         <>
             <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static">
+                <AppBar position="fixed">
                     <Toolbar>
                         <IconButton
                             size="large"
@@ -200,7 +203,7 @@ const NavBar = () => {
                                 onClick={toggleCartDrawer(true)}
                                 color="inherit"
                             >
-                                <Badge badgeContent={0} color="error">
+                                <Badge badgeContent={countCart} color="error">
                                     <ShoppingCartIcon />
                                 </Badge>
                             </IconButton>

@@ -35,7 +35,6 @@ const ProductList = () => {
     return(
 
         <Box
-            sx={{ width: 400 }}
             role="presentation"
         >
             <List>
@@ -105,7 +104,8 @@ const ProductList = () => {
 };
 
 const CartDrawer = ({openDrawer, toggleDrawer, anchor} : Props) => {
-
+    //Traemos la cantidad de productos desde el context
+    const {countCart} = useContext<any>(CartContext)
 
     return (
         <div>
@@ -114,13 +114,23 @@ const CartDrawer = ({openDrawer, toggleDrawer, anchor} : Props) => {
                 open={openDrawer}
                 onClose={toggleDrawer(false)}
             >
-                <DrawerHeader>
-                    <Typography variant="h5">Carrito</Typography>
-                    <IconButton onClick={toggleDrawer(false)}>
-                        <CloseIcon />
-                    </IconButton>
-                </DrawerHeader>
-                <ProductList/>
+                <Box
+                    sx={{ minWidth: 400 }}
+                >
+                    <DrawerHeader>
+                        <Typography variant="h5">Carrito</Typography>
+                        <IconButton onClick={toggleDrawer(false)}>
+                            <CloseIcon />
+                        </IconButton>
+                    </DrawerHeader>
+                    {
+                        countCart > 0 ?(
+                            <ProductList/>
+                        ):(
+                            <Typography sx={{padding: 2, textAlign: 'center'}} variant='h6'>El carrito está vacío</Typography>
+                        )
+                    }
+                </Box>
             </Drawer>
         </div>
     );
