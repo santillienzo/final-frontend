@@ -69,14 +69,15 @@ const ProductList = () => {
                                 </Select>
                             </FormControl>
                             <IconButton
-                                        size="large"
-                                        edge="end"
-                                        aria-label="account of current user"
-                                        aria-haspopup="true"
-                                    >
-                                        <Tooltip title='Eliminar de carrito'>
-                                            <DeleteIcon />
-                                        </Tooltip>
+                                onClick={()=> deleteItemToCart(product.id)}
+                                size="large"
+                                edge="end"
+                                aria-label="account of current user"
+                                aria-haspopup="true"
+                            >
+                                <Tooltip title='Eliminar de carrito'>
+                                    <DeleteIcon />
+                                </Tooltip>
                             </IconButton>
                         </ListItem>
                     ))
