@@ -2,12 +2,16 @@ import { useParams, Navigate } from "react-router-dom"
 import {Image,Button} from 'react-bootstrap'
 import data from "../../lib/data"
 import { Product } from "../../lib/interface"
+import { useContext } from "react"
+import CartContext from "../../context/CartContext"
 
 const getProduct = (id: string) => {
     return data.find((product:Product) => product.id === Number(id))
 }
 
 const DetailProduct = () => {
+    const {addItemToCart} = useContext<any>(CartContext)
+
     const {id} = useParams()
     const product = getProduct(id!)
 
@@ -18,16 +22,16 @@ const DetailProduct = () => {
     return (
         <div style={{display: "flex"}}>
             <div style={{padding:"16px"}}>
-                <Image src={product?.image} alt={product?.name} style={{maxWidth: "100%"}} />
+                <Image src={product.image} alt={product.name} style={{maxWidth: "100%"}} />
             </div>
 
             <div style={{padding: "16px"}}>
-                <h1>{product?.name}</h1>
-                <h2>${product?.price}</h2>
+                <h1>{product.name}</h1>
+                <h2>${product.price}</h2>
 
-                <p>{product?.description}</p>
+                <p>{product.description}</p>
 
-                <Button className="w-100">Comprar</Button>
+                <Button className="w-100" onClick={()=> addItemToCart(product)}>Añadir al carrito</Button>
             </div>
         </div>
     )
