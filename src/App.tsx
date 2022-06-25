@@ -16,7 +16,7 @@ function App() {
         <Router>
             <div style={{minHeight: '100vh', display: 'grid', gridTemplateRows: 'auto 1fr auto'}}>
                 <NavBar/>
-                <DrawerHeader />
+                <DrawerHeader></DrawerHeader>
                 <RoutesContainer>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/product/:id" element={<DetailProduct />} />
