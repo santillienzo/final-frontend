@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -8,10 +8,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
 import FormControl from '@mui/material/FormControl';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-
-import data from '../../../lib/data'
 import CartContext from '../../../context/CartContext';
 
 interface Props{
@@ -53,7 +51,7 @@ const ProductList = () => {
                                     id="demo-select-small"
                                     value={product.quantity.toString()}
                                     label="Cantidad"
-                                    onChange={(e)=> updateItem(e.target.value, product)}
+                                    onChange={(e)=> updateItem(Number(e.target.value), product)}
                                 >
                                         <MenuItem value={1}>1</MenuItem>
                                         <MenuItem value={2}>2</MenuItem>
