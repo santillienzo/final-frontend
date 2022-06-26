@@ -16,6 +16,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
 import CartContext from '../../../context/CartContext';
+import { useNavigate } from "react-router-dom";
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -58,6 +59,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const NavBar = () => {
+    const navigate = useNavigate();
     //Traemos la cantidad de productos desde el context
     const {countCart} = useContext<any>(CartContext)
     //OpenDrawer
@@ -178,7 +180,8 @@ const NavBar = () => {
                             variant="h6"
                             noWrap
                             component="div"
-                            sx={{ display: { xs: 'none', sm: 'block' } }}
+                            sx={{ display: { xs: 'none', sm: 'block' }, cursor: 'pointer' }}
+                            onClick={()=> navigate('/')}
                         >
                             El Gran Sabor
                         </Typography>
