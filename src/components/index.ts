@@ -4,6 +4,7 @@ export {default as NavBar} from './layout/NavBar/NavBar'
 export {default as TemporaryDrawer} from './layout/NavBar/TemporaryDrawer'
 export {default as CartDrawer} from './layout/CartDrawer/CartDrawer'
 export {default as Footer} from './layout/Footer/Footer'
+export {default as SignIn} from './layout/SignIn/SignInSide'
 
 //FEATURES
 /*Componentes específicos de las vistas.*/

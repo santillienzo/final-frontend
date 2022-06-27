@@ -1,4 +1,4 @@
-import {Footer, Home, NavBar,DetailProduct,Error404} from './components';
+import {Footer, Home, NavBar,DetailProduct,Error404,SignIn} from './components';
 import {BrowserRouter as Router, Route, Routes as RoutesContainer} from "react-router-dom";
 import { styled } from '@mui/material/styles';
 
@@ -18,6 +18,7 @@ function App() {
                 <NavBar/>
                 <DrawerHeader></DrawerHeader>
                 <RoutesContainer>
+                    <Route path="/signin" element={<SignIn/>}/>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/product/:id" element={<DetailProduct />} />
                     <Route path="*" element={<Error404/>}/>
