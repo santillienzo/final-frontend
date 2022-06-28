@@ -11,6 +11,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Select from '@mui/material/Select';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CartContext from '../../../context/CartContext';
+import { useNavigate } from "react-router-dom";
+
 
 interface Props{
     openDrawer: boolean,
@@ -28,6 +30,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 const ProductList = () => {
+    const navigate = useNavigate();
+
     const {cartItems, priceTotal, deleteItemToCart, updateItem, countCart} = useContext<any>(CartContext)
 
     return(
@@ -92,7 +96,12 @@ const ProductList = () => {
                         <Typography variant="h6">Subtotal</Typography>
                         <Typography variant="h6">${priceTotal}</Typography>
                     </Box>
-                    <Button variant="contained" endIcon={<ArrowForwardIosIcon />} sx={{width: '100%'}}>
+                    <Button 
+                        variant="contained" 
+                        endIcon={<ArrowForwardIosIcon />} 
+                        sx={{width: '100%'}}
+                        onClick={()=> navigate('pay_order')}
+                    >
                         Ir a pagar
                     </Button>
                 </Box>
@@ -102,6 +111,7 @@ const ProductList = () => {
 };
 
 const CartDrawer = ({openDrawer, toggleDrawer, anchor} : Props) => {
+
     //Traemos la cantidad de productos desde el context
     const {countCart} = useContext<any>(CartContext)
 

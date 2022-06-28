@@ -9,6 +9,7 @@ export {default as Footer} from './layout/Footer/Footer'
 /*Componentes específicos de las vistas.*/
 export {default as BannerHome} from './features/BannerHome/BannerHome'
 export {default as SliderCardSection} from './features/SliderCardSection/SliderCardSection'
+export {default as PayStepper} from './features/PayStepper/PayStepper'
 
 //COMMON
 /*Componentes reutilizables como botones, tarjetas, etc */
@@ -19,4 +20,5 @@ export {default as RedirectButton} from './common/RedirectButton/RedirectButton'
 /*Las raíces de las vistas */
 export {default as Home} from './views/Home'
 export {default as DetailProduct} from './views/DetailProduct'
+export {default as PayOrder} from './views/PayOrder'
 export {default as Error404} from './views/Error404'
