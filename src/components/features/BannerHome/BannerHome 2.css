@@ -1,0 +1,10 @@
+.bannerHome{
+    display: none;
+    width: 90%;
+    background-color: aliceblue;
+    height: 40vh;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

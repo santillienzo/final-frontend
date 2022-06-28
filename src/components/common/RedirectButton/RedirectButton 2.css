@@ -1,0 +1,8 @@
+.redirectButton{
+    display: inline-block;
+    color: #000;
+    background-color: wheat;
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}

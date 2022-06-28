@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8d7103ba-3c7a-474e-afb2-87c40ca9f46f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/features/BannerHome/BannerHome.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/BannerHome/BannerHome.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +49,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;copyright.filetypes.TypeScript&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/emilianosinatra/Desktop/DEV/final-frontend/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -62,8 +63,12 @@
       <option name="presentableId" value="Default" />
       <updated>1655324762859</updated>
       <workItem from="1655324766797" duration="6436000" />
-      <workItem from="1656331419885" duration="1881000" />
-      <workItem from="1656361438252" duration="288000" />
+      <workItem from="1655924004475" duration="494000" />
+      <workItem from="1655924616967" duration="36000" />
+      <workItem from="1655924865655" duration="43000" />
+      <workItem from="1655924925831" duration="32000" />
+      <workItem from="1655924967254" duration="2375000" />
+      <workItem from="1655993445420" duration="1273000" />
     </task>
     <servers />
   </component>
