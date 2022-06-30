@@ -4,7 +4,6 @@ export {default as NavBar} from './layout/NavBar/NavBar'
 export {default as TemporaryDrawer} from './layout/NavBar/TemporaryDrawer'
 export {default as CartDrawer} from './layout/CartDrawer/CartDrawer'
 export {default as Footer} from './layout/Footer/Footer'
-export {default as SignIn} from './layout/SignIn/SignInSide'
 
 //FEATURES
 /*Componentes específicos de las vistas.*/
@@ -21,3 +20,5 @@ export {default as RedirectButton} from './common/RedirectButton/RedirectButton'
 export {default as Home} from './views/Home'
 export {default as DetailProduct} from './views/DetailProduct'
 export {default as Error404} from './views/Error404'
+export {default as SignIn} from './views/SignIn'
+export {default as SignUp} from './views/SignUp'

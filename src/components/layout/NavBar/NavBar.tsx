@@ -112,8 +112,14 @@ const NavBar = () => {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Iniciar sesión</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Registrarse</MenuItem>
+            <MenuItem onClick={()=> {
+                handleMenuClose()
+                navigate('/signin')
+            }}>Iniciar sesión</MenuItem>
+            <MenuItem onClick={()=> {
+                handleMenuClose()
+                navigate('/signup')
+            }}>Registrarse</MenuItem>
         </Menu>
     );
 
